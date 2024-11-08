@@ -1,9 +1,12 @@
 import React from 'react'
 import LayOut from '../../Components/Layout/LayOut'
+import Hero from '../../Components/HeroSection/Hero'
 
 function Home() {
   return (
-    <LayOut>Home</LayOut>
+    <LayOut>
+      <Hero/>
+    </LayOut>
   )
 }
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
@@ -7,7 +8,7 @@ function Footer() {
     <div className='container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col'>
         <div className='w-64 md:mx-0 mx-auto text-center md:text-left'>
             <h3 className='font-bold text-2xl'>
-                ViTo <span>Shop</span>
+                ViTo <span className='text-red-500'>Shop</span>
             </h3>
             </div>
 
@@ -59,13 +60,16 @@ function Footer() {
         </div>
     </div>
 
-       <div className='bg-gray-500 text-white'>
+       <div className='bg-red-500 text-white'>
         <div className='container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row'>
             <p className='text-sm text-center sm:text-left'>
                 € 2024 ViToShop <span>@copyright</span>
             </p>
             <p className='inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start'>
-                Fb, Insta, Twitter
+                <span className='mr-2'><FaFacebook size={30}/></span>
+                <span className='mr-2'><FaInstagram size={30}/></span>
+                <span className='mr-2'><FaTwitter size={30}/></span>
+                 
             </p>
         </div>
        </div>
