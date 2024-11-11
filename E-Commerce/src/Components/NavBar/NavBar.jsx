@@ -30,8 +30,9 @@ function NavBar() {
                 <div className='hidden md:block'>
                 <ul className='flex items-center text-lg justify-center font-semibold'>
                   <Link><li className='mr-5 hover:text-gray-900 cursor-pointer'>Home</li></Link>
-               
+               <Link to='/allproducts'>
                <li className='mr-5 hover:text-gray-900 cursor-pointer'>All Products</li>
+               </Link>
                <li className='mr-5 hover:text-gray-900 cursor-pointer'>Mens</li>
                <li className='mr-5 hover:text-gray-900 cursor-pointer'>Kids</li>
                 </ul>

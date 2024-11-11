@@ -8,7 +8,7 @@ function Home() {
   return (
     <LayOut>
       <Hero/>
-      <Service/>
+      <Service/> 
       <Gallary/>
     </LayOut>
   )
