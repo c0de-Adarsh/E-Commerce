@@ -1,12 +1,12 @@
 
 import React from 'react'
-import LayOut from '../../Components/Layout/LayOut';
+//import LayOut from '../../Components/Layout/LayOut';
 import login from '../../assets/login.jpg'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-     <LayOut>
+     <>
        <div>
         <div className='relative'>
             
@@ -36,7 +36,7 @@ const Login = () => {
   </div>
         </div>
         
-     </LayOut>
+     </>
   )
 }
 

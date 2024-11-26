@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from "react";
-import LayOut from "../Layout/LayOut";
+//import LayOut from "../Layout/LayOut";
 import login from "../../assets/login.jpg";
 import axios from "axios";
 
@@ -73,7 +73,7 @@ const AllProduct = ({ AddToCart }) => {
 
   return (
     <>
-      <LayOut>
+      <>
         <div className="relative">
           <img
             src={login}
@@ -138,7 +138,7 @@ const AllProduct = ({ AddToCart }) => {
         </div>
 
 
-      </LayOut>
+      </>
     </>
   );
 };

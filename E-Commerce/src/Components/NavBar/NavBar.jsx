@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
 
-function NavBar() {
+function NavBar({cart}) {
 
   const [isOpen , setOpen] = useState(false);
 
@@ -60,7 +60,11 @@ function NavBar() {
                   <Link to='/login'>
                   <button className=' bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base  font-semibold'>Login</button>
                   </Link>
-                  <Link to='/cart'><button><FaShoppingCart size={25}/></button></Link>
+                  <Link to='/cart'><button>
+                  <span className='text-red-700 font-semibold'>
+                    {cart.length}
+                    </span><FaShoppingCart size={25}/>
+                  </button></Link>
 
                   {
                     isOpen?"":<button className=' md:hidden' onClick={toggleHandler}><GiHamburgerMenu size={25} /></button>
