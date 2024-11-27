@@ -14,6 +14,8 @@ const AllProduct = ({ AddToCart }) => {
   const [originalProducts, setOriginalProducts] = useState([])
   const [selectProducts, setSelectProducts] = useState("");
 
+  const [searchItem , setSearchItem] = useState("")
+
   // const [showProducts , setShowProducts] = useState(false)
 
   //allProducts 
@@ -69,7 +71,11 @@ const AllProduct = ({ AddToCart }) => {
     setAllProducts(data)
   };
 
-
+   const handleSearchItem = (event) =>{
+      const query = event.target.value;
+      setSearchItem(query);
+     
+   }
 
   return (
     <>
@@ -108,7 +114,9 @@ const AllProduct = ({ AddToCart }) => {
         </div>
 
 
-
+        <div className="text-center mt-3 text-2xl">
+          <input placeholder="search item" className="border-4 items-center px-2 py-2" onChange={handleSearchItem} />
+        </div>
 
         {/* all product */}
         <div className="flex gap-4 flex-wrap justify-center mt-3 mb-3">

@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 //import LayOut from '../../Components/Layout/LayOut'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
-function Cart({cart,handleDecrease,handleIncrease,removeHandler, totalProductPrice}) {
+function Cart({cart,handleDecrease,handleIncrease,removeHandler, totalProductPrice,applyPromoCode,promocode,setPromoCode,invalid}) {
     
-
-  const [promocode , setPromoCode] = useState('')
+   const navigate = useNavigate();
  
-
-   const applyPromoCode = () =>{
-    
-   }
 
   return (
     <>
@@ -115,18 +110,19 @@ function Cart({cart,handleDecrease,handleIncrease,removeHandler, totalProductPri
           <span className="text-center w-1/5 font-semibold text-sm">$150.00</span>
         </div> */}
 
-        <a href="#" className="flex font-semibold text-indigo-600 text-sm mt-10">
+        <p href="#" className="flex font-semibold text-indigo-600 text-sm mt-10 cursor-pointer"
+        onClick={()=> navigate('/allproducts')}>
       
           <svg className="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
           Continue Shopping
-        </a>
+        </p>
       </div>
 
       <div id="summary" className="w-full lg:w-1/4 px-8 py-10 bg-[#f6f6f6f6]">
         <h1 className="font-semibold text-2xl border-b pb-8">Order Summary</h1>
         <div className="flex justify-between mt-10 mb-5">
           <span className="font-semibold text-sm uppercase">{cart.length} items</span>
-          <span className="font-semibold text-sm">{totalProductPrice()}</span>
+          <span className="font-semibold text-sm">{Math.floor(totalProductPrice())}</span>
         </div>
         <div>
           <label className="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
@@ -138,14 +134,22 @@ function Cart({cart,handleDecrease,handleIncrease,removeHandler, totalProductPri
           <label for="promo" className="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
           <input type="text" id="promo" placeholder="Enter your code" className="p-2 text-sm w-full" 
            value={promocode}
-          onChange={() => setPromoCode(e.target.value)}/>
+          onChange={(e) => setPromoCode(e.target.value)}/> 
+          {
+           promocode && promocode !== 'DISCOUNT10'?(<span className='text-[red] font-semibold'>{invalid}</span>):(<span>use DISCOUNT 10</span>
+          )}
+          <hr />
+          {
+
+            promocode === 'DISCOUNT10' &&(<span className='text-green-600'>PromoCode apply successfully</span>)
+          }
         </div>
         <button className="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase"
         onClick={applyPromoCode}>Apply</button>
         <div className="border-t mt-8">
           <div className="flex font-semibold justify-between py-6 text-sm uppercase">
             <span>Total cost</span>
-            <span>{totalProductPrice()+10}</span>
+            <span>{Math.floor(totalProductPrice()+10)}</span>
           </div>
           <button className="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
         </div>
