@@ -11,6 +11,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './firebaseAuth/firebaseAuth';
 import SingleProduct from './Components/SingleProduct/SingleProduct';
+import About from './Components/About/About';
+import Contact from './Components/Contact/Contact';
 
 export default function App() {
 
@@ -36,6 +38,7 @@ export default function App() {
       ))
 
       setCart(cartUpdate)
+      toast.success('Product added to cart!')
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
     }
@@ -110,7 +113,9 @@ export default function App() {
             <Route path='/' element={<Home />} />
             <Route path='/cart' element={<Cart cart={cart} handleIncrease={handleIncrease} handleDecrease={handleDecrease} removeHandler={removeHandler}  totalProductPrice={totalProductPrice}   applyPromoCode={applyPromoCode}  promocode={promocode} setPromoCode={setPromoCode} invalid={invalid}/>}  />
             <Route path='/allproducts' element={<AllProduct AddToCart={AddToCart}   />} />
-            <Route path='/singleProduct/:id' element={<SingleProduct/>}/>
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/singleProduct/:id' element={<SingleProduct AddToCart={AddToCart}/>}/>
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<SignUp />} />
 

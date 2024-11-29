@@ -33,8 +33,13 @@ function NavBar({cart,userName}) {
                <Link to='/allproducts'>
                <li className='mr-5 hover:text-gray-900 cursor-pointer'>All Products</li>
                </Link>
-               <li className='mr-5 hover:text-gray-900 cursor-pointer'>Mens</li>
-               <li className='mr-5 hover:text-gray-900 cursor-pointer'>Kids</li>
+               <Link to='/about'>
+               <li className='mr-5 hover:text-gray-900 cursor-pointer'>About</li>
+               </Link>
+               <Link to='/contact'>
+               <li className='mr-5 hover:text-gray-900 cursor-pointer'>Contact</li>
+               </Link>
+            
                 </ul>
               </div> 
 
