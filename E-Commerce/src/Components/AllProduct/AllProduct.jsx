@@ -6,6 +6,7 @@ import login from "../../assets/login.jpg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+
 const AllProduct = ({ AddToCart }) => {
 
   const [AllProduct, setAllProducts] = useState([])
@@ -107,14 +108,14 @@ const AllProduct = ({ AddToCart }) => {
             alt=""
             className="object-cover w-full object-center h-[200px] mt-5"
           />
-          <div className="w-full h-[200px] bg-black absolute top-0 left-0 opacity-[.4]"></div>
+          <div className="w-full h-[200px] bg-black absolute top-0 left-0 opacity-[.4]">
           <h2 className="absolute top-[40%] left-[10%] text-white font-semibold text-3xl  md:text-5xl">
             All Product
           </h2>
         </div>
 
         {/* Products category */}
-        <div className="bg-[#e2e0e0] container mx-auto rounded-md py-3 mt-4">
+        <div className="bg-[#e2e0e0] container mx-auto rounded-md py-3 mt-4 ">
         <div className="text-center mt-4">
           <select onChange={(e) => filterProducts(e.target.value)} className="border">
             <option>filter by category</option>
@@ -150,34 +151,37 @@ const AllProduct = ({ AddToCart }) => {
           </button>
           </div>
           </div>
+       
         {/* all product */}
-        <div className="flex gap-4 flex-wrap justify-center mt-3 mb-3">
-          {
-            AllProduct.map((allItems) => (
-              <div key={allItems.id} className="bg-[#ffffff] shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 mt-8">
-                <Link to={`/singleProduct/${allItems.id}`}>
-                <img src={allItems.thumbnail} alt="" className=" rounded-t-lg p-8  w-full h-full object-cover object-center block" />
-                </Link>
-                <div className="px-5 pb-5">
-                  <h3 className="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">
-                    {allItems.title} {/* Render the title string */}
-                    </h3>
-                  <span className="bg-blue-100  text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded">
-                    {allItems.rating} {/* Render the rating number */}
-                  </span>
-                  <div className="flex items-center justify-between">
-                  <p className=" text-2xl font-bold text-gray-900 dark:text-white">Price:{allItems.price} Rs. {/* Render the price string */}</p>
-                  <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={()=> AddToCart(allItems)}>
-                    Add to Cart
-                  </button>
-                </div>
-                </div>
-              </div>
-            ))
-          }
+        <section className="container mx-auto px-4">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {AllProduct.map((allItems) => (
+      <div key={allItems.id} className="card">
+        <Link to={`/singleProduct/${allItems.id}`}>
+          <img
+            src={allItems.thumbnail}
+            alt={allItems.title}
+            className="w-full aspect-square object-cover"
+          />
+        </Link>
+        <div className="p-4">
+          <h3 className="text-xl font-semibold">{allItems.title}</h3>
+          <p className="text-gray-500">Rating: {allItems.rating}</p>
+          <p className="font-bold text-lg">Price: ₹{allItems.price}</p>
+          <button
+            onClick={() => AddToCart(allItems)}
+            className="mt-2 bg-blue-600 text-white px-4 py-2 rounded"
+          >
+            Add to Cart
+          </button>
         </div>
-      
+      </div>
+    ))}
+  </div>
+</section>
 
+        </div>
+        
       </>
     </>
   );

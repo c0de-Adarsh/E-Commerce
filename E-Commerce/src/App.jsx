@@ -38,9 +38,10 @@ export default function App() {
       ))
 
       setCart(cartUpdate)
-      toast.success('Product added to cart!')
+     
     } else {
       setCart([...cart, { ...product, quantity: 1 }]);
+      toast.success('Product added to cart!')
     }
 
 
@@ -110,7 +111,7 @@ export default function App() {
         <Router>
           <NavBar cart={cart} userName={userName}/>
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/' element={<Home AddToCart={AddToCart}/>} />
             <Route path='/cart' element={<Cart cart={cart} handleIncrease={handleIncrease} handleDecrease={handleDecrease} removeHandler={removeHandler}  totalProductPrice={totalProductPrice}   applyPromoCode={applyPromoCode}  promocode={promocode} setPromoCode={setPromoCode} invalid={invalid}/>}  />
             <Route path='/allproducts' element={<AllProduct AddToCart={AddToCart}   />} />
             <Route path='/about' element={<About />} />

@@ -9,6 +9,9 @@ import img6 from '../../assets/GallarlyImg/img6.jpg'
 const Gallary = () => {
   return (
     <>
+      <div className='mt-10 text-center font-semibold'>
+                <h2 className=' text-4xl md:text-5xl underline'>Gallary</h2>
+                </div>
     <section class="text-gray-600 body-font">
   <div class="container px-5 py-20 mx-auto flex flex-wrap">
     <div class="flex flex-wrap md:-m-2 -m-1">
